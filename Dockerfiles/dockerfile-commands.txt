@@ -1,0 +1,19 @@
+================ Dockerfile Keywords ===============
+FROM: it takes an existing image as a base layer
+
+RUN: it runs certain operation to create an image 
+
+CMD: it runs when an image is up and running as a container
+
+================ Dockerfile build commands ==========
+
+docker build . : build Docker file present in the container
+
+docker build -t nilanjanb3/redis:latest . : create and tag a custom docker image
+
+docker commit -c 'CMD ["redis-server"]' <container-id> : it will commit the changes done on container and 
+    will replace the previos image; also -c flag set the CMD of the container
+
+docker tag <image-id> <target-image-name>:tag  : renaming docker image
+
+docker rename <container-id> <new-container-name>  : renaming docker container

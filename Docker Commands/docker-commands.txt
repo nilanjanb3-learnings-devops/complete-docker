@@ -1,0 +1,53 @@
+docker version: provide version of client and server
+
+docker run hello-world
+
+docker run busybox echo "hello there" : format is docker run <image-name> <command>
+
+docker ps: shows all the running containers
+
+docker ps --all or docker ps -a: shows all the container ever been created
+
+docker run = docker create/pull + docker start
+
+docker create hello-world : create a container based on hello-world image and return container id
+
+docker start -a <container-id> : start a docker container of id provided and '-a' will attach the default command's console output
+
+docker system prune : WARNING! This will remove:
+    - all stopped containers
+    - all networks not used by at least one container
+    - all dangling images
+    - all dangling build cache
+
+docker logs <container-id> : shows all the logs associated with the container
+
+docker stop <container-id> : it sends a sigterm signal inside the container process which get some time to close
+
+docker kill <container-id> : it sends a signkill signal inside the container process which immediately stops the container
+
+docker exec -it <container-id> <command> : exec helps to run additional command to a container
+    -it flag helps to run a container in interactive mode.
+
+docker exec -it <container-name> sh : open a shell inside of the container
+
+docker run -it <image-name> sh : does the same as above
+
+* containers are by default isolated from each other
+
+
+
+docker build . : build Docker file present in the container
+
+docker build -t nilanjanb3/redis:latest . : create and tag a custom docker image
+
+docker commit -c 'CMD ["redis-server"]' <container-id> : it will commit the changes done on container and 
+    will replace the previos image; also -c flag set the CMD of the container
+
+docker tag <image-id> <target-image-name>:tag  : renaming docker image
+
+docker rename <container-id> <new-container-name>  : renaming docker container
+
+
+
+
